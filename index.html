@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palesa & Phindulo's Wedding</title>
+    <title>Sarah & John's Wedding</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Georgia', serif;
-            color: #A52A2A;
+            color: #333;
             line-height: 1.6;
         }
 
@@ -43,7 +43,7 @@
         }
 
         nav a:hover {
-            color: #A52A2A;
+            color: #d4af37;
         }
 
         /* Hero Section */
@@ -200,17 +200,6 @@
             background: #b8941f;
         }
 
-        .success-message {
-            display: none;
-            background: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1.5rem;
-            border: 2px solid #c3e6cb;
-            text-align: center;
-        }
-
         /* Registry */
         .registry-grid {
             display: grid;
@@ -303,9 +292,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <h1>Palesa</h1>
+        <h1>Sarah</h1>
         <div class="ampersand">&</div>
-        <h1>Phindulo</h1>
+        <h1>John</h1>
         <p class="date">June 15, 2026</p>
         <p class="countdown">We're getting married!</p>
     </section>
@@ -315,7 +304,7 @@
         <h2>Our Story</h2>
         <div class="story-content">
             <div class="story-text">
-                <p>We met five years ago at a coffee shop in downtown. Phindulo accidentally spilled coffee on Palesa's laptop, and while apologizing profusely, he offered to buy her a new one. Palesa laughed and said a date would be sufficient compensation.</p>
+                <p>We met five years ago at a coffee shop in downtown. John accidentally spilled coffee on Sarah's laptop, and while apologizing profusely, he offered to buy her a new one. Sarah laughed and said a date would be sufficient compensation.</p>
                 <br>
                 <p>From that moment, we knew we had found something special. Through adventures, challenges, and countless memories, our love has only grown stronger. Now we're excited to celebrate this next chapter with all of you!</p>
             </div>
@@ -356,20 +345,37 @@
     <!-- RSVP -->
     <section id="rsvp">
         <h2>RSVP</h2>
-        <div class="rsvp-form">
-            <p style="text-align: center; font-size: 1.2rem; color: #6b5b4f; margin-bottom: 2rem;">
-                We can't wait to celebrate with you! Please let us know if you'll be joining us.
-            </p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkVpj25eLD_-QnTs7-30W3Vo5oVJ9OlI3PReOQktmZG7fs9Q/viewform" 
-               target="_blank" 
-               class="submit-btn" 
-               style="display: block; text-align: center; text-decoration: none;">
-                Complete RSVP Form
-            </a>
-            <p style="text-align: center; font-size: 0.9rem; color: #6b5b4f; margin-top: 1rem;">
-                The form will open in a new tab
-            </p>
-        </div>
+        <form class="rsvp-form" onsubmit="handleRSVP(event)">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="guests">Number of Guests *</label>
+                <input type="number" id="guests" min="1" max="5" required>
+            </div>
+            <div class="form-group">
+                <label for="attendance">Will you attend? *</label>
+                <select id="attendance" required>
+                    <option value="">Please select</option>
+                    <option value="yes">Joyfully accept</option>
+                    <option value="no">Regretfully decline</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dietary">Dietary Restrictions</label>
+                <textarea id="dietary" placeholder="Please let us know of any dietary restrictions or allergies"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="message">Message to the Couple</label>
+                <textarea id="message" placeholder="Share your excitement or well wishes!"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit RSVP</button>
+        </form>
     </section>
 
     <!-- Registry -->
@@ -409,45 +415,27 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Palesa & Phindulo's Wedding | See you on June 15th!</p>
+        <p>&copy; 2026 Sarah & John's Wedding | See you on June 15th!</p>
     </footer>
 
     <script>
-        const form = document.getElementById('rsvpForm');
-        const successMessage = document.getElementById('successMessage');
+        function handleRSVP(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const guests = document.getElementById('guests').value;
+            const attendance = document.getElementById('attendance').value;
+            const dietary = document.getElementById('dietary').value;
+            const message = document.getElementById('message').value;
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+            alert(`Thank you ${name}! Your RSVP has been submitted.\n\nWe've recorded:\n- ${guests} guest(s)\n- Attendance: ${attendance === 'yes' ? 'Yes' : 'No'}\n\nYou will receive a confirmation email at ${email}.`);
             
-            const formData = new FormData(form);
+            // In a real website, you would send this data to a server
+            console.log({name, email, guests, attendance, dietary, message});
             
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    successMessage.style.display = 'block';
-                    form.reset();
-                    
-                    // Scroll to success message
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    
-                    // Hide message after 7 seconds
-                    setTimeout(() => {
-                        successMessage.style.display = 'none';
-                    }, 7000);
-                } else {
-                    alert('Oops! There was a problem submitting your RSVP. Please try again or contact us directly.');
-                }
-            })
-            .catch(error => {
-                alert('Oops! There was a problem submitting your RSVP. Please try again or contact us directly.');
-            });
-        });
+            event.target.reset();
+        }
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
