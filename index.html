@@ -4,21 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palesa & Phindulo's Wedding</title>
-    <!-- Tailwind CSS CDN for utility classes and aesthetics -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles to mimic the original look with modern features */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
-
-        :root {
-            --primary-color: #A52A2A; /* Rich Brown/Deep Red */
-            --secondary-color: #6b5b4f; /* Dusty Brown */
-            --background-light: #fdfcf9;
-            --background-dark: #f0f0e8;
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Inter', sans-serif;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -26,31 +12,9 @@
         }
 
         body {
-            font-family: var(--font-sans);
-            color: var(--secondary-color);
+            font-family: 'Georgia', serif;
+            color: #A52A2A;
             line-height: 1.6;
-            background-color: var(--background-light);
-        }
-
-        /* Utility Styles */
-        h1, h2, h3 {
-            font-family: var(--font-serif);
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            padding-bottom: 0.5rem;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid rgba(165, 42, 42, 0.2);
-            font-weight: 700;
-        }
-
-        section {
-            padding: 5rem 1rem;
-            background-color: var(--background-light);
         }
 
         /* Navigation */
@@ -59,7 +23,7 @@
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 0;
+            padding: 1rem 2rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
         }
@@ -73,224 +37,263 @@
 
         nav a {
             text-decoration: none;
-            color: var(--secondary-color);
+            color: #6b5b4f;
             font-weight: 500;
             transition: color 0.3s;
-            padding: 0.5rem 0;
         }
 
         nav a:hover {
-            color: var(--primary-color);
+            color: #A52A2A;
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
+            background: linear-gradient(135deg, #f5e6d3 0%, #d4af37 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #6b5b4f;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero .ampersand {
+            font-size: 5rem;
+            font-family: 'Brush Script MT', cursive;
+            color: #d4af37;
+        }
+
+        .hero .date {
+            font-size: 1.5rem;
+            color: #6b5b4f;
+            margin-top: 1rem;
+        }
+
+        .hero .countdown {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: #6b5b4f;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #6b5b4f;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        /* Our Story */
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 400px;
+            background: #e8d7c3;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            background-image: url('https://placehold.co/1200x800/6b5b4f/A52A2A?text=Romantic+Couple+Image');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            color: white;
-            padding-top: 4rem; /* Compensate for fixed nav */
+            color: #6b5b4f;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+        /* Wedding Details */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .hero-content {
-            z-index: 10;
+        .detail-card {
+            background: #f9f6f2;
             padding: 2rem;
-            border: 5px solid rgba(255, 255, 255, 0.8);
             border-radius: 10px;
-            background: rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero h1 {
-            font-family: var(--font-serif);
-            font-size: 4rem;
-            color: white;
-            margin-bottom: 1rem;
-            line-height: 1;
-        }
-        .hero p {
-            font-size: 1.5rem;
-            font-family: var(--font-serif);
-            color: #fdfcf9;
-        }
-
-        /* Details Section */
-        #details .detail-card {
-            background-color: var(--background-dark);
-            border: 1px solid #e0d9d0;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             text-align: center;
-            transition: transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        #details .detail-card:hover {
-            transform: translateY(-5px);
-        }
-        
         .detail-card h3 {
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
+            color: #d4af37;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        /* RSVP Form Styling */
+        .detail-card p {
+            color: #6b5b4f;
+            margin: 0.5rem 0;
+        }
+
+        /* RSVP Form */
         .rsvp-form {
             max-width: 600px;
             margin: 0 auto;
-            padding: 2rem;
-            background-color: var(--background-dark);
+            background: #f9f6f2;
+            padding: 3rem;
             border-radius: 10px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
 
         .form-group {
             margin-bottom: 1.5rem;
         }
 
-        .rsvp-form label {
+        .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--secondary-color);
+            color: #6b5b4f;
+            font-weight: 500;
         }
 
-        .rsvp-form input[type="text"],
-        .rsvp-form select,
-        .rsvp-form textarea {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ccc;
+            padding: 0.8rem;
+            border: 2px solid #d4af37;
             border-radius: 5px;
-            font-family: var(--font-sans);
+            font-family: inherit;
             font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .rsvp-form input[type="text"]:focus,
-        .rsvp-form select:focus,
-        .rsvp-form textarea:focus {
-            border-color: var(--primary-color);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(165, 42, 42, 0.2);
         }
 
-        .rsvp-form textarea {
+        .form-group textarea {
             resize: vertical;
             min-height: 100px;
         }
 
         .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 1rem;
-            background-color: var(--primary-color);
+            background: #d4af37;
             color: white;
+            padding: 1rem 3rem;
             border: none;
             border-radius: 5px;
             font-size: 1.1rem;
-            font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.3s, opacity 0.3s;
+            width: 100%;
+            transition: background 0.3s;
         }
 
-        .submit-btn:hover:not(:disabled) {
-            background-color: #8B1A1A; /* Darker shade of primary */
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
+        .submit-btn:hover {
+            background: #b8941f;
         }
 
         .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            border: 2px solid #c3e6cb;
             text-align: center;
-            padding: 2rem;
-            background-color: #e6ffed;
-            color: #1a7f37;
-            border: 1px solid #b2f5c7;
-            border-radius: 8px;
-            font-size: 1.5rem;
-            font-family: var(--font-serif);
         }
 
-        /* Registry Card Styling */
+        /* Registry */
+        .registry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
         .registry-card {
-            background-color: var(--background-dark);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            background: #f9f6f2;
+            padding: 2rem;
+            border-radius: 10px;
             text-align: center;
-            transition: box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .registry-card:hover {
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        .registry-card h3 {
+            color: #6b5b4f;
+            margin-bottom: 1rem;
         }
-        
+
         .registry-btn {
             display: inline-block;
-            margin-top: 1rem;
-            padding: 0.6rem 1.5rem;
-            background-color: var(--secondary-color);
+            background: #d4af37;
             color: white;
+            padding: 0.8rem 2rem;
             text-decoration: none;
             border-radius: 5px;
-            font-weight: 600;
-            transition: background-color 0.3s;
+            margin-top: 1rem;
+            transition: background 0.3s;
         }
 
         .registry-btn:hover {
-            background-color: #5a4c42;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.9rem;
+            background: #b8941f;
         }
 
-        /* Mobile Adjustments */
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background: #e8d7c3;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b5b4f;
+        }
+
+        /* Footer */
+        footer {
+            background: #6b5b4f;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
-            .hero p {
-                font-size: 1.2rem;
-            }
-            #details .grid, #registry .grid {
+
+            .story-content {
                 grid-template-columns: 1fr;
             }
+
             nav ul {
+                flex-wrap: wrap;
                 gap: 1rem;
             }
         }
     </style>
 </head>
 <body>
-
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="#hero">Home</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#story">Our Story</a></li>
             <li><a href="#details">Details</a></li>
             <li><a href="#rsvp">RSVP</a></li>
             <li><a href="#registry">Registry</a></li>
@@ -299,154 +302,108 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1>Palesa & Phindulo</h1>
-            <p>Are getting married!</p>
-            <p class="mt-4 text-2xl font-normal">June 15, 2026 | Johannesburg, South Africa</p>
-        </div>
+    <section id="home" class="hero">
+        <h1>Palesa</h1>
+        <div class="ampersand">&</div>
+        <h1>Phindulo</h1>
+        <p class="date">June 15, 2026</p>
+        <p class="countdown">We're getting married!</p>
     </section>
 
-    <!-- Welcome Message -->
-    <section id="welcome" class="text-center max-w-3xl mx-auto py-16">
-        <h2 class="mb-4 text-3xl">Welcome</h2>
-        <p class="text-lg">
-            We are overjoyed to invite you to witness and celebrate the beginning of our forever. After years of friendship, laughter, and shared adventures, we are finally tying the knot. Your presence is the greatest gift we could ask for. Please explore the site for details on the venue, accommodation, and to submit your RSVP.
-        </p>
-    </section>
-
-    <!-- Details Section -->
-    <section id="details" class="bg-white">
-        <h2>Event Details</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div class="detail-card">
-                <h3 class="flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    The Ceremony
-                </h3>
-                <p>Date: Saturday, June 15, 2026</p>
-                <p>Time: 15:00 (3:00 PM)</p>
-                <p>Venue: The Conservatory, Rosebank</p>
+    <!-- Our Story -->
+    <section id="story">
+        <h2>Our Story</h2>
+        <div class="story-content">
+            <div class="story-text">
+                <p>We met five years ago at a coffee shop in downtown. Phindulo accidentally spilled coffee on Palesa's laptop, and while apologizing profusely, he offered to buy her a new one. Palesa laughed and said a date would be sufficient compensation.</p>
+                <br>
+                <p>From that moment, we knew we had found something special. Through adventures, challenges, and countless memories, our love has only grown stronger. Now we're excited to celebrate this next chapter with all of you!</p>
             </div>
-            <div class="detail-card">
-                <h3 class="flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    The Reception
-                </h3>
-                <p>Immediately following the ceremony at the same location.</p>
-                <p>Dinner, dancing, and drinks will follow.</p>
-                <p>Dress Code: Formal/Traditional Attire.</p>
+            <div class="story-image">
+                [Your Photo Here]
             </div>
         </div>
-        <div class="text-center mt-8">
-            <a href="https://maps.google.com/?q=The+Conservatory,+Rosebank" target="_blank" class="registry-btn bg-primary-color hover:bg-secondary-color">Get Directions</a>
+    </section>
+
+    <!-- Wedding Details -->
+    <section id="details">
+        <h2>Wedding Details</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>Ceremony</h3>
+                <p><strong>Date:</strong> June 15, 2026</p>
+                <p><strong>Time:</strong> 3:00 PM</p>
+                <p><strong>Location:</strong> St. Mary's Church</p>
+                <p>123 Wedding Street, Pretoria</p>
+            </div>
+            <div class="detail-card">
+                <h3>Reception</h3>
+                <p><strong>Time:</strong> 5:00 PM</p>
+                <p><strong>Location:</strong> The Grand Ballroom</p>
+                <p>456 Celebration Avenue, Pretoria</p>
+                <p>Dinner & Dancing to Follow</p>
+            </div>
+            <div class="detail-card">
+                <h3>Dress Code</h3>
+                <p><strong>Formal Attire</strong></p>
+                <p>Ladies: Long dresses</p>
+                <p>Gentlemen: Suits or tuxedos</p>
+                <p>Colors: Navy, Gold, or Pastels</p>
+            </div>
         </div>
     </section>
 
-    <!-- RSVP Section with AJAX Submission -->
-    <section id="rsvp" class="bg-gray-50">
+    <!-- RSVP -->
+    <section id="rsvp">
         <h2>RSVP</h2>
         <div class="rsvp-form">
-            
-            <!-- Success Message (Initially hidden) -->
-            <div class="success-message" id="rsvpSuccess" style="display: none;">
-                Thank you for your RSVP! We can't wait to celebrate with you. 🎉
-            </div>
-            
-            <p style="text-align: center; font-size: 1.2rem; color: var(--secondary-color); margin-bottom: 2rem;">
-                Kindly respond by May 1st, 2026.
+            <p style="text-align: center; font-size: 1.2rem; color: #6b5b4f; margin-bottom: 2rem;">
+                We can't wait to celebrate with you! Please let us know if you'll be joining us.
             </p>
-            
-            <!-- The Form - ACTION MUST BE UPDATED -->
-            <!-- IMPORTANT: Replace YOUR_GOOGLE_FORM_SUBMISSION_URL with your actual Google Form 'formResponse' URL -->
-            <form id="rsvpForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdkVpj25eLD_-QnTs7-30W3Vo5oVJ9OlI3PReOQktmZG7fs9Q/viewform?usp=dialog" method="POST">
-                
-                <div class="form-group">
-                    <label for="fullName">Full Name(s) *</label>
-                    <!-- IMPORTANT: Replace entry.111111111 with your Google Form "Name" Field ID -->
-                    <input type="text" id="fullName" name="entry.111111111" placeholder="e.g. John and Jane Doe" required> 
-                </div>
-
-                <div class="form-group">
-                    <label for="attending">Will you be attending? *</label>
-                    <!-- IMPORTANT: Replace entry.222222222 with your Google Form "Attending" Field ID -->
-                    <select id="attending" name="entry.222222222" required>
-                        <option value="">-- Please Select --</option>
-                        <option value="Yes, I will be there!">Yes, I will be there!</option>
-                        <option value="No, unfortunately I cannot attend.">No, unfortunately I cannot attend.</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="guests">Number of Guests (including yourself) *</label>
-                    <!-- IMPORTANT: Replace entry.333333333 with your Google Form "Guest Count" Field ID -->
-                    <select id="guests" name="entry.333333333" required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="dietary">Dietary Restrictions / Allergies</label>
-                    <!-- IMPORTANT: Replace entry.444444444 with your Google Form "Dietary" Field ID -->
-                    <input type="text" id="dietary" name="entry.444444444" placeholder="e.g., Vegan, Gluten-Free, Allergies (Optional)">
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message for the Couple</label>
-                    <!-- IMPORTANT: Replace entry.555555555 with your Google Form "Message" Field ID -->
-                    <textarea id="message" name="entry.555555555" placeholder="Share a message or song request (Optional)"></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Send RSVP</button>
-            </form>
-            <!-- End of Form -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkVpj25eLD_-QnTs7-30W3Vo5oVJ9OlI3PReOQktmZG7fs9Q/viewform" 
+               target="_blank" 
+               class="submit-btn" 
+               style="display: block; text-align: center; text-decoration: none;">
+                Complete RSVP Form
+            </a>
+            <p style="text-align: center; font-size: 0.9rem; color: #6b5b4f; margin-top: 1rem;">
+                The form will open in a new tab
+            </p>
         </div>
     </section>
 
-    <!-- Registry Section -->
-    <section id="registry" class="bg-white">
-        <h2>Registry</h2>
-        <p class="text-center max-w-2xl mx-auto mb-8 text-lg">
-            Your love and support are the only gifts we need! However, if you wish to honor us with a gift, we have registered at a few places, and we also have a fund for our future home.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+    <!-- Registry -->
+    <section id="registry">
+        <h2>Gift Registry</h2>
+        <div class="registry-grid">
             <div class="registry-card">
-                <h3>Gift List</h3>
-                <p>View our selections at a local store.</p>
-                <a href="#" class="registry-btn">View Store List</a>
+                <h3>Amazon</h3>
+                <p>Find our registry on Amazon for home essentials and more</p>
+                <a href="#" class="registry-btn">View Registry</a>
+            </div>
+            <div class="registry-card">
+                <h3>Target</h3>
+                <p>Browse our selections at Target</p>
+                <a href="#" class="registry-btn">View Registry</a>
             </div>
             <div class="registry-card">
                 <h3>Cash Fund</h3>
-                <p>Contribute to our honeymoon fund.</p>
+                <p>Contribute to our honeymoon fund</p>
                 <a href="#" class="registry-btn">Contribute</a>
-            </div>
-             <div class="registry-card">
-                <h3>Home Fund</h3>
-                <p>Help us furnish our future home.</p>
-                <a href="#" class="registry-btn">Donate</a>
             </div>
         </div>
     </section>
 
     <!-- Gallery -->
-    <section id="gallery" class="bg-gray-50">
+    <section id="gallery">
         <h2>Our Journey</h2>
-        <p class="text-center mb-8 text-lg">A look back at some of our favorite memories together.</p>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            <div class="gallery-item rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x400/8B1A1A/FFFFFF?text=Engagement+Photo+1" alt="Engagement Photo 1" class="w-full h-full object-cover"></div>
-            <div class="gallery-item rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x400/6b5b4f/FFFFFF?text=Travel+Photo+2" alt="Travel Photo 2" class="w-full h-full object-cover"></div>
-            <div class="gallery-item rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x400/A52A2A/FFFFFF?text=Family+Photo+3" alt="Family Photo 3" class="w-full h-full object-cover"></div>
-            <div class="gallery-item rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x400/6b5b4f/FFFFFF?text=Candid+Moment+4" alt="Candid Moment 4" class="w-full h-full object-cover"></div>
-            <div class="gallery-item rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x400/8B1A1A/FFFFFF?text=Adventure+Photo+5" alt="Adventure Photo 5" class="w-full h-full object-cover"></div>
-            <div class="gallery-item rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x400/A52A2A/FFFFFF?text=The+Proposal+6" alt="The Proposal Photo 6" class="w-full h-full object-cover"></div>
+        <div class="gallery-grid">
+            <div class="gallery-item">[Photo 1]</div>
+            <div class="gallery-item">[Photo 2]</div>
+            <div class="gallery-item">[Photo 3]</div>
+            <div class="gallery-item">[Photo 4]</div>
+            <div class="gallery-item">[Photo 5]</div>
+            <div class="gallery-item">[Photo 6]</div>
         </div>
     </section>
 
@@ -456,7 +413,7 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -467,64 +424,6 @@
                         block: 'start'
                     });
                 }
-            });
-        });
-
-        // --- RSVP SUBMISSION SCRIPT (AJAX) ---
-        const rsvpForm = document.getElementById('rsvpForm');
-        const successMessage = document.getElementById('rsvpSuccess');
-        const submitButton = rsvpForm.querySelector('.submit-btn');
-
-        rsvpForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop the default page redirect
-
-            // Simple validation check
-            if (!rsvpForm.checkValidity()) {
-                rsvpForm.reportValidity();
-                return;
-            }
-
-            // Disable button and change text while submitting
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending RSVP...';
-
-            // Get form data and construct the URL-encoded body
-            const formData = new FormData(rsvpForm);
-            const formUrl = rsvpForm.getAttribute('action');
-            const data = new URLSearchParams();
-
-            // Populate URLSearchParams with form data (using the Google Form entry IDs)
-            for (const pair of formData.entries()) {
-                data.append(pair[0], pair[1]);
-            }
-
-            // Use the fetch API to submit data in the background
-            // The 'no-cors' mode is ESSENTIAL for cross-domain submission to Google Forms
-            fetch(formUrl, {
-                method: 'POST',
-                mode: 'no-cors', 
-                body: data,
-            })
-            .then(() => {
-                // SUCCESS: Hide the form, clear its inputs, and show the success message
-                rsvpForm.reset(); // Clear inputs
-                rsvpForm.style.display = 'none';
-                successMessage.style.display = 'block';
-                // Re-enable button state in case they refresh and want to submit again
-                submitButton.disabled = false;
-                submitButton.textContent = 'Send RSVP'; 
-            })
-            .catch(error => {
-                // ERROR: Log the error and re-enable the button
-                console.error('Error submitting form:', error);
-                // Use a custom message/modal instead of alert for better UX
-                const errorMessage = document.createElement('div');
-                errorMessage.className = 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4';
-                errorMessage.innerHTML = 'There was an error submitting your RSVP. Please check your network or try again.';
-                rsvpForm.prepend(errorMessage);
-
-                submitButton.disabled = false;
-                submitButton.textContent = 'Send RSVP';
             });
         });
     </script>
