@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Contribution - Wedding Info and Invite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5e6d3 0%, #d4af37 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #6b5b4f;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6b5b4f;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .account-details {
+            background: #f9f6f2;
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .detail-row {
+            margin: 1.2rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #d4af37;
+            transition: transform 0.2s;
+        }
+
+        .detail-row:hover {
+            transform: translateX(5px);
+        }
+
+        .label {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .value {
+            color: #6b5b4f;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .note {
+            background: #fff9e6;
+            border-left: 4px solid #d4af37;
+            padding: 1rem;
+            border-radius: 5px;
+            color: #6b5b4f;
+            font-size: 0.95rem;
+            margin-top: 1.5rem;
+        }
+
+        .note strong {
+            color: #d4af37;
+        }
+
+        .thank-you {
+            text-align: center;
+            color: #6b5b4f;
+            margin-top: 2.5rem;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #b8941f;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .account-details {
+                padding: 1.5rem;
+            }
+
+            .value {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💝 Gift Contribution</h1>
+        <p class="subtitle">
+            Your generous contribution to our honeymoon fund is greatly appreciated!<br>
+            Please use the banking details below to make your gift.
+        </p>
+        
+        <div class="account-details">
+            <div class="detail-row">
+                <div class="label">Bank Name</div>
+                <div class="value">Capitec Bank</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="label">Account Holder</div>
+                <div class="value">Mr P Singo</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="label">Account Number</div>
+                <div class="value">1533728009</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="label">Branch Code</div>
+                <div class="value">470010</div>
+            </div>
+
+            <div class="note">
+                <strong>Please use as reference:</strong> Your Name - Wedding Gift<br>
+                (e.g., "John Smith - Wedding Gift")
+            </div>
+        </div>
+        
+        <p class="thank-you">
+            Thank you so much for your love and generosity! 💕<br>
+            We are blessed to have you celebrate with us.<br>
+            <br>
+            With love,<br>
+            Palesa & Phindulo
+        </p>
+
+        <a href="index.html" class="back-link">← Back to Wedding Website</a>
+    </div>
+</body>
+</html>
