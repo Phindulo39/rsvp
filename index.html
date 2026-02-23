@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -250,7 +250,7 @@
         /* Gallery */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
         }
 
@@ -258,10 +258,16 @@
             height: 250px;
             background: #e8d7c3;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b5b4f;
+            overflow: hidden;
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item {
+                height: 220px;
+            }
         }
 
         /* Payment Details */
@@ -462,15 +468,21 @@
     </section>
 
 
-          <section id="gallery">
-              </div>
-                <div class="story-image">
-        <img src="imagies/small_one.jpeg" alt="Palesa and Phindulo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 1px;">
-        <img src="imagies/small_three.jpeg" alt="Palesa and Phindulo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 1px;">
-        <img src="imagies/side_pic.jpeg" alt="Palesa and Phindulo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 1px;">
-              </div>
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="padding: 0; overflow: hidden;">
+                <img src="imagies/small_one.jpeg" alt="Palesa and Phindulo" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="gallery-item" style="padding: 0; overflow: hidden;">
+                <img src="imagies/small_three.jpeg" alt="Palesa and Phindulo" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="gallery-item" style="padding: 0; overflow: hidden;">
+                <img src="imagies/side_pic.jpeg" alt="Palesa and Phindulo" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </section>
 
-    
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Palesa & Phindulo's Wedding | See you on March 29</p>
